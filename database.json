@@ -1,0 +1,58 @@
+{
+    "1": {
+        "username": "oleg93",
+        "email": "oleg93@gmail.com",
+        "department" : "FT",
+        "date_joined" : "2020-05-26T11:33:12"
+
+    },
+    "2": {
+        "username": "vova54",
+        "email": "vova54@gmail.com",
+        "department" : "PNC",
+        "date_joined" : "2020-05-26T11:34:12"
+
+    },
+    "3": {
+        "username": "artem65",
+        "email": "artem@gmail.com",
+        "department" : "FTTA",
+        "date_joined" : "2020-05-26T11:37:12"
+
+    },
+    "4": {
+        "username": "gleb33",
+        "email": "gleb@gmail.com",
+        "department" : "FT",
+        "date_joined" : "2020-05-26T11:39:12"
+
+    },
+    "5": {
+        "username": "ivan333",
+        "email": "ivan@gmail.com",
+        "department" : "FRS",
+        "date_joined" : "2020-05-26T12:39:12"
+
+    },
+    "6": {
+        "username": "kostya33",
+        "email": "kostya@gmail.com",
+        "department" : "FT",
+        "date_joined" : "2020-05-26T13:39:12"
+
+    },
+    "7": {
+        "username": "alex33",
+        "email": "alex@gmail.com",
+        "department" : "FRS",
+        "date_joined" : "2020-05-26T11:40:12"
+
+    },
+    "8": {
+        "username": "dimon33",
+        "email": "dimon@gmail.com",
+        "department" : "PNC",
+        "date_joined" : "2020-05-25T11:39:12"
+
+    }			
+}
