@@ -11,29 +11,31 @@ except:
 
 
 class Userss:
-    global users
+
     def GET(self, username=None, department=None):
-        data1 = []
+        data1 = {}
 
         if username == None:
             for user in users:
                 if users[user]['username'] not in data1:
-                    data1.append(users[user]['username'])   
+                    data1[int(user)] = users[user]
         else:
             for user in users:
                 if username == users[user]['username'] or username in users[user]['username']:
-                        if users[user]['username'] not in data1:
-                            data1.append(users[user]['username']) 
+                        if user not in data1:
+                            data1[int(user)] = users[user]  
 
         if department != None:
             for user in users:
                 if department != users[user]['department']:
                     try:
-                        data1.remove(users[user]['username'])  
+                        del data1[int(user)]
                     except:
                         pass   
-
-        return {'data: %s' % data1}
+        if data1 == {}:
+            return {'Not enough data'}  
+        else:              
+            return {'data: %s' % data1}
 
     def POST(self, a, b):
         return a
