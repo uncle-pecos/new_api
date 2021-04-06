@@ -1,5 +1,6 @@
 import cherrypy
 import json
+import sys
 
 try:
     with open('database.json', encoding='utf-8') as f:
@@ -15,27 +16,31 @@ class Userss:
     def GET(self, username=None, department=None):
         data1 = {}
 
-        if username == None:
+        if username == None and username != '':
             for user in users:
                 if users[user]['username'] not in data1:
-                    data1[int(user)] = users[user]
+                    data1[user] = users[user]
         else:
             for user in users:
                 if username == users[user]['username'] or username in users[user]['username']:
                         if user not in data1:
-                            data1[int(user)] = users[user]  
+                            data1[user] = users[user]  
 
-        if department != None:
+            # print(data1, '+++', department)
+
+        if department != '' and department != None:
             for user in users:
                 if department != users[user]['department']:
                     try:
-                        del data1[int(user)]
+                        del data1[user]
                     except:
-                        pass   
+                        pass  
+        # elif department == '':
+        #     pass 
         if data1 == {}:
-            return {'Not enough data'}  
-        else:              
-            return {'data: %s' % data1}
+            return {'Not enough data / No data'}  
+        else:           
+            return {'%s' % data1}
 
     def POST(self, a, b):
         return a
@@ -59,9 +64,10 @@ class Departments:
                         data1.append(users[depart]['department'])  
                     #data1[depart] = users[depart] 
 
-        return {'data: %s' % data1}
+        return {'%s' % data1}
 
     exposed = True
+
 
 if __name__ == '__main__':
     cherrypy.tree.mount(
@@ -79,3 +85,5 @@ if __name__ == '__main__':
 
     cherrypy.engine.start()
     cherrypy.engine.block()
+    
+        
