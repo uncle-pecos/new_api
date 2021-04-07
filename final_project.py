@@ -37,10 +37,7 @@ class Userss:
                         pass  
         # elif department == '':
         #     pass 
-        if data1 == {}:
-            return {'Not enough data / No data'}  
-        else:           
-            return {'%s' % data1}
+        return {'%s' % data1}
 
     def POST(self, a, b):
         return a

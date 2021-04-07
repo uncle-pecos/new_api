@@ -1,3 +1,3 @@
 start py final_project.py
-cmd /q /k  py.test test_users.py -v --disable-warnings 
+cmd /q /k  pytest test_all.py -v --disable-warnings 
 
