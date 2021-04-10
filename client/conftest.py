@@ -4,15 +4,17 @@ import json
 from api_check import check_users
 from final_project import Userss, Departments
 import cherrypy
+import logging
+import os
 
-@pytest.fixture()
+
+def shutdown_server():
+    cherrypy.engine.exit()
+    cherrypy.engine.block()
+
+
+@pytest.fixture(scope="module")
 def start_api():
-    try:
-        with open('database.json', encoding='utf-8') as f:
-            users = json.load(f)
-
-    except:
-        print('You need database.json')    
     cherrypy.tree.mount(
         Userss(), '/api/users', {
             '/': 
@@ -24,10 +26,16 @@ def start_api():
             '/': 
                 {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
-    )    
+    )   
+    cherrypy.engine.start()
+    cherrypy.engine.wait(cherrypy.engine.states.STARTED)
 
-    cherrypy.quickstart()
-    cherrypy.engine.stop()
-    yield
+    yield 
     
-    sys.exit()
+    shutdown_server()
+
+    with open("tests.log") as file:
+        for line in file:
+            print(line)
+
+    os.remove('tests.log')

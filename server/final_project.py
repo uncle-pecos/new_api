@@ -47,11 +47,9 @@ class Userss:
 class Departments:
 
     def GET(self, department=None):
-        #data1 = {}
         data1 = []
         if department == None:
             for depart in users:
-                #data1[depart] = users[depart]
                 if users[depart]['department'] not in data1:
                     data1.append(users[depart]['department'])  
         else:
@@ -59,7 +57,6 @@ class Departments:
                 if department == users[depart]['department'] or department in users[depart]['department']:
                     if users[depart]['department'] not in data1:
                         data1.append(users[depart]['department'])  
-                    #data1[depart] = users[depart] 
 
         return {'%s' % data1}
 
@@ -79,7 +76,7 @@ if __name__ == '__main__':
                 {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
     )    
-
+    cherrypy.config.update({'server.socket_host': '0.0.0.0'})
     cherrypy.engine.start()
     cherrypy.engine.block()
     
