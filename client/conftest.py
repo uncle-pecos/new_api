@@ -17,8 +17,10 @@ def start_api():
     pass
 
     yield   
-      
+
     with open('tests.log') as fl:
         for line in fl:
             print(line)
-    os.remove('tests.log')
+    #os.remove('tests.log')
+    while True:
+        pass

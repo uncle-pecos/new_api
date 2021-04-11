@@ -71,4 +71,11 @@ $ docker run -d -p 8080:8080 api-tests
 
 (it works in client folder)
 
+Show logs
+========
 
+To show logs open client CLI and use:
+
+```
+$ cat tests.log
+```
