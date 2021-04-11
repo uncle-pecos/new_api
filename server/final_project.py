@@ -6,8 +6,9 @@ try:
     with open('database.json', encoding='utf-8') as f:
         users = json.load(f)
 
-except:
+except FileNotFoundError:
     print('You need database.json')
+    sys.exit()
 
 
 

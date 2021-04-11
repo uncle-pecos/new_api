@@ -15,7 +15,7 @@ services:
 
     build: client/
 
-    command: sh -c "pytest -v -s -n16 test_all.py --disable-warnings; tail -f tail.txt"
+    command: sh -c "pytest -v -s -n2 test_all.py --disable-warnings; tail -f ../dev/null"
 
     network_mode: host
  

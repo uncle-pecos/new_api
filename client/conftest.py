@@ -1,15 +1,4 @@
 import pytest
-import sys
-import json
-from api_check import check_users
-import cherrypy
-import logging
-import os
-
-
-def shutdown_server():
-    cherrypy.engine.exit()
-    cherrypy.engine.block()
 
 
 @pytest.fixture(scope="module")
