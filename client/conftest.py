@@ -14,12 +14,13 @@ def shutdown_server():
 
 @pytest.fixture(scope="module")
 def start_api():
-    pass
+    database = open('database.json', encoding='utf-8')
+    print('Database connected')
 
     yield   
-
+    database.close()
     with open('tests.log') as fl:
         for line in fl:
             print(line)
-    #os.remove('tests.log')
+    
 
