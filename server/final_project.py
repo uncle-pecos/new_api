@@ -22,11 +22,10 @@ class Userss:
                     data1[user] = users[user]
         else:
             for user in users:
-                if username == users[user]['username'] or username in users[user]['username']:
+                if username == users[user]['username'] or users[user]['username'].startswith(username):
                         if user not in data1:
                             data1[user] = users[user]  
 
-            # print(data1, '+++', department)
 
         if department != '' and department != None:
             for user in users:
@@ -35,8 +34,6 @@ class Userss:
                         del data1[user]
                     except:
                         pass  
-        # elif department == '':
-        #     pass 
         return {'%s' % data1}
 
     def POST(self, a, b):
@@ -54,7 +51,7 @@ class Departments:
                     data1.append(users[depart]['department'])  
         else:
             for depart in users:
-                if department == users[depart]['department'] or department in users[depart]['department']:
+                if department == users[depart]['department'] or users[depart]['department'].startswith(department):
                     if users[depart]['department'] not in data1:
                         data1.append(users[depart]['department'])  
 

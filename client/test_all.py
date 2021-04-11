@@ -33,7 +33,7 @@ res_bad = '---FAILED---'
 def logging(result, i, request, response):
     url = "http://127.0.0.1:8080/api/"
     with open('tests.log', 'a+', encoding='utf-8') as fl:
-        line = f'test{i}:\n{url}{request}                  {result}\n'
+        line = f'\ntest_{i}:\n{url}{request}                  {result}\n'
         fl.writelines(line)
         line = f'{response}\n\n'
         fl.writelines(line)
@@ -59,7 +59,7 @@ def test_empty_dep_plus_name(start_api):
     req = request_users + f'?department=&username={name[0]}'
     temp = {}
     for i in users:
-        if name[0] in users[i]['username']:
+        if users[i]['username'].startswith(name[0]):
             temp[i] = users[i]
     if res == str(temp):
         logging(res_good, c, req, res)
@@ -142,7 +142,7 @@ def test_plus_dep(start_api):
     assert res == str(temp)  
 
 def test_plus_wrong_dep(start_api):
-    global c    
+    global c
     c += 1
     name = users[test_list]['department'] 
     res = check_users(department = name + '0')
@@ -166,7 +166,7 @@ def test_plus_dep_name(start_api):
     req = request_users + f'?department={name}&username={name1[0]}' 
     temp = {}
     for i in users:
-        if name1[0] in users[i]['username']:
+        if users[i]['username'].startswith(name1[0]):
             temp[i] = users[i]
         if users[i]['department'] != name:
             try:
@@ -212,7 +212,7 @@ def test_plus_part_name(start_api):
     req1 = request_users + f'username={name + name1}' 
     temp = {}
     for i in users:
-        if name in users[i]['username'] or name + name1 in users[i]['username']:
+        if users[i]['username'].startswith(name) or  users[i]['username'].startswith(name + name1):
             temp[i] = users[i]
     if res == str(temp):
         logging(res_good, c, req, res)
@@ -273,7 +273,7 @@ def test_part_dep(start_api):
     req = request_dep + f'?department={part}'
     temp = []
     for i in deps:
-        if part in i:
+        if i.startswith(part):
             temp.append(i)
     if res == str(temp):
         logging(res_good, c, req, res)

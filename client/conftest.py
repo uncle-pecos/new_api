@@ -2,7 +2,6 @@ import pytest
 import sys
 import json
 from api_check import check_users
-from final_project import Userss, Departments
 import cherrypy
 import logging
 import os
@@ -15,27 +14,11 @@ def shutdown_server():
 
 @pytest.fixture(scope="module")
 def start_api():
-    cherrypy.tree.mount(
-        Userss(), '/api/users', {
-            '/': 
-                {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
-        }
-    )
-    cherrypy.tree.mount(
-        Departments(), '/api/department', {
-            '/': 
-                {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
-        }
-    )   
-    cherrypy.engine.start()
-    cherrypy.engine.wait(cherrypy.engine.states.STARTED)
+    pass
 
-    yield 
-    
-    shutdown_server()
-
-    with open("tests.log") as file:
-        for line in file:
+    yield   
+      
+    with open('tests.log') as fl:
+        for line in fl:
             print(line)
-
     os.remove('tests.log')

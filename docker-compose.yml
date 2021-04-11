@@ -9,7 +9,7 @@ services:
     command: python3 ./final_project.py
 
     ports:
-      - 1234:1234
+      - 8080:8080
 
   client:
 

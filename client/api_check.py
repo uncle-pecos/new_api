@@ -19,12 +19,3 @@ def check_users(username='', department=''):
 def check_department(department=''):
     response = requests.get(url + 'department/' + department).text
     return response    
-
-
-# if check_users() == str(users):
-#     print('ok')
-
-#response1 = requests.get('http://127.0.0.1:8080/api/users/').text
-# response2 = requests.get('http://127.0.0.1:8080/api/users/?department=FT').text
-# response3 = requests.get('http://127.0.0.1:8080/api/users/?department=FRS&username=ivan').text
-# response4 = requests.get('http://127.0.0.1:8080/api/users/1').text
