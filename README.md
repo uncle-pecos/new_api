@@ -1,4 +1,4 @@
-A very basic web application using the
+A basic api using the
 [CherryPy](http://cherrypy.org/) framework and Python 3.9.2.
 
 The image is quite light thanks to
