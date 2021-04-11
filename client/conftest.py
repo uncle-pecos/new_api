@@ -22,5 +22,4 @@ def start_api():
         for line in fl:
             print(line)
     #os.remove('tests.log')
-    while True:
-        pass
+
