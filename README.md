@@ -35,9 +35,6 @@ Also it has filters by 'username' and 'department'
 You can check all departments by http://locahost:8080/department/
 Also it has filter by 'department'
 
-Logs will print automatically
-
-
 Finally you can stop the server as follows:
 
 ```

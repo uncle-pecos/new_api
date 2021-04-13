@@ -4,29 +4,23 @@ import json
 
 @pytest.fixture(scope="module")
 def start_db():
-    
-    def _method():
-        database = json.load(open('database.json', encoding='utf-8'))
-        print('Database connected')
+    print('\nDatabase connected\n')
+    database_op = open('database.json', encoding='utf-8')             #  connect to our database
+    database = json.load(database_op)                                 #  parse our database  
+    deps = []
+    for user in database:
+        if database[user]['department'] not in deps:
+            deps.append(database[user]['department'])
+    test_list = list(database.keys())[1]
+    user = {test_list : database[test_list]}
+    ress = deps[0]
 
-        deps = []
+    yield database, user, ress, deps, test_list, database_op
 
-        for user in database:
-            if database[user]['department'] not in deps:
-                deps.append(database[user]['department'])
-        test_list = list(database.keys())[1]
-        user = {test_list : database[test_list]}
-        ress = deps[0]
-
-        return database, user, ress, deps, test_list
-
-    
-    yield _method
-
-    def _method(database):  
-        database.close()
-    with open('tests.log') as fl:
-        for line in fl:
-            print(line)
-            return _method
+    database_op.close()                                        # close database connection
+    print('\nDatabase disconnected')
+    # with open('tests.log') as fl:
+    #     for line in fl:
+    #         print(line)
+            
 

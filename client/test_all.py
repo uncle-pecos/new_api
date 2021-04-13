@@ -23,10 +23,8 @@ def logging(result, i, request, response):
 
 
 
-
 def test_empty(start_db):
-    users = start_db()[0]    
-    #print (users, '++++++++')
+    users = start_db[0]    
     global c
     c += 1
     res = check_users()
@@ -37,9 +35,9 @@ def test_empty(start_db):
     assert res == str(users)
 
 def test_empty_dep_plus_name(start_db):
-    users = start_db()[0]
-    test_list = start_db()[4]
-    user = start_db()[1]
+    users = start_db[0]
+    test_list = start_db[4]
+    user = start_db[1]
     global c
     name = user[test_list]['username']
     c += 1
@@ -56,9 +54,9 @@ def test_empty_dep_plus_name(start_db):
     assert res == str(temp)
 
 def test_empty_dep_wrong_name(start_db):
-    users = start_db()[0]
-    user = start_db()[1]
-    test_list = start_db()[4]
+    users = start_db[0]
+    user = start_db[1]
+    test_list = start_db[4]
     global c
     name = user[test_list]['username']
     c += 1
@@ -75,9 +73,9 @@ def test_empty_dep_wrong_name(start_db):
     assert res == str(temp)  
 
 def test_empty_name_plus_dep(start_db):
-    users = start_db()[0]
-    test_list = start_db()[4]
-    user = start_db()[1]
+    users = start_db[0]
+    test_list = start_db[4]
+    user = start_db[1]
     global c
     name = user[test_list]['department']
     c += 1
@@ -99,8 +97,8 @@ def test_empty_name_plus_dep(start_db):
     assert res == str(temp)  
 
 def test_empty_name_plus_wrong_dep(start_db):
-    users = start_db()[0]
-    test_list = start_db()[4]
+    users = start_db[0]
+    test_list = start_db[4]
     global c
     name = users[test_list]['department']
     c += 1
@@ -122,8 +120,8 @@ def test_empty_name_plus_wrong_dep(start_db):
     assert res == str(temp)  
 
 def test_plus_dep(start_db):
-    users = start_db()[0]
-    test_list = start_db()[4]
+    users = start_db[0]
+    test_list = start_db[4]
     global c
     c += 1
     name = users[test_list]['department']
@@ -140,8 +138,8 @@ def test_plus_dep(start_db):
     assert res == str(temp)  
 
 def test_plus_wrong_dep(start_db):
-    users = start_db()[0]
-    test_list = start_db()[4]
+    users = start_db[0]
+    test_list = start_db[4]
     global c
     c += 1
     name = users[test_list]['department'] 
@@ -158,8 +156,8 @@ def test_plus_wrong_dep(start_db):
     assert res == str(temp)  
 
 def test_plus_dep_name(start_db):
-    users = start_db()[0]
-    test_list = start_db()[4]
+    users = start_db[0]
+    test_list = start_db[4]
     global c
     c += 1
     name = users[test_list]['department'] 
@@ -182,8 +180,8 @@ def test_plus_dep_name(start_db):
     assert res == str(temp)
 
 def test_wrong_dep_name(start_db):
-    users = start_db()[0]
-    test_list = start_db()[4]
+    users = start_db[0]
+    test_list = start_db[4]
     global c    
     c += 1
     name = users[test_list]['department'] 
@@ -206,8 +204,8 @@ def test_wrong_dep_name(start_db):
     assert res == str(temp)    
 
 def test_plus_part_name(start_db):
-    users = start_db()[0]
-    test_list = start_db()[4]
+    users = start_db[0]
+    test_list = start_db[4]
     global c
     c += 1
     name = users[test_list]['username'][0]
@@ -229,8 +227,8 @@ def test_plus_part_name(start_db):
     assert res == str(temp) 
 
 def test_plus_wrong_name(start_db):
-    users = start_db()[0]
-    test_list = start_db()[4]
+    users = start_db[0]
+    test_list = start_db[4]
     global c   
     c += 1
     name = users[test_list]['username']
@@ -247,8 +245,8 @@ def test_plus_wrong_name(start_db):
     assert res == str(temp)   
 
 def test_plus_fullname(start_db):
-    users = start_db()[0]
-    test_list = start_db()[4]
+    users = start_db[0]
+    test_list = start_db[4]
     global c   
     c += 1
     name = users[test_list]['username']
@@ -267,7 +265,7 @@ def test_plus_fullname(start_db):
 def test_empty_dep(start_db):
     global c
     c += 1
-    deps = start_db()[3]  
+    deps = start_db[3]  
     res = check_department()    
     req = request_dep
     if res == str(deps):
@@ -278,8 +276,8 @@ def test_empty_dep(start_db):
 
 def test_part_dep(start_db):
     global c
-    part = start_db()[2][0]
-    deps = start_db()[3]  
+    part = start_db[2][0]
+    deps = start_db[3]  
     c += 1
     res = check_department(department= part)    
     req = request_dep + f'?department={part}'
@@ -296,8 +294,8 @@ def test_part_dep(start_db):
 def test_wrong_dep(start_db):
     global c
     c += 1
-    ress = start_db()[2] 
-    deps = start_db()[3]  
+    ress = start_db[2] 
+    deps = start_db[3]  
     res = check_department(department= ress + '0')    
     req = request_dep + f'?department={ress + "0"}'
     temp = []
@@ -313,8 +311,8 @@ def test_wrong_dep(start_db):
 def test_full_dep(start_db):
     global c   
     c += 1
-    ress = start_db()[2]    
-    deps = start_db()[3]     
+    ress = start_db[2]    
+    deps = start_db[3]     
     res = check_department(department= ress)    
     req = request_dep + f'?department={ress}'
     temp = []
