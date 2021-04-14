@@ -4,8 +4,8 @@ import json
 
 @pytest.fixture(scope="module")
 def start_db():
-    print('\nDatabase connected\n')
     database_op = open('database.json', encoding='utf-8')             #  connect to our database
+    print('\nDatabase connected\n')
     database = json.load(database_op)                                 #  parse our database  
     deps = []
     for user in database:
