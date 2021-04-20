@@ -23,7 +23,7 @@ class Userss:
                     data1[user] = users[user]
         else:
             for user in users:
-                if username == users[user]['username'] or users[user]['username'].startswith(username):
+                if username == users[user]['username'] or username in users[user]['username']:
                         if user not in data1:
                             data1[user] = users[user]  
 

@@ -45,7 +45,7 @@ def test_empty_dep_plus_name(start_db):
     req = request_users + f'?department=&username={name[0]}'
     temp = {}
     for i in users:
-        if users[i]['username'].startswith(name[0]):
+        if name[0] in users[i]['username']:
             temp[i] = users[i]
     if res == str(temp):
         logging(res_good, c, req, res)
@@ -166,7 +166,7 @@ def test_plus_dep_name(start_db):
     req = request_users + f'?department={name}&username={name1[0]}' 
     temp = {}
     for i in users:
-        if users[i]['username'].startswith(name1[0]):
+        if name1[0] in users[i]['username']:
             temp[i] = users[i]
         if users[i]['department'] != name:
             try:
@@ -216,7 +216,7 @@ def test_plus_part_name(start_db):
     req1 = request_users + f'username={name + name1}' 
     temp = {}
     for i in users:
-        if users[i]['username'].startswith(name) or  users[i]['username'].startswith(name + name1):
+        if name in users[i]['username'] or  name + name1 in users[i]['username']:
             temp[i] = users[i]
     if res == str(temp):
         logging(res_good, c, req, res)
@@ -283,7 +283,7 @@ def test_part_dep(start_db):
     req = request_dep + f'?department={part}'
     temp = []
     for i in deps:
-        if i.startswith(part):
+        if part in i:
             temp.append(i)
     if res == str(temp):
         logging(res_good, c, req, res)
