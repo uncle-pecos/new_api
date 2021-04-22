@@ -11,7 +11,7 @@ Run it
 Run it from main project folder ('new_api'):
 
 ```
-$ docker-compose up 
+$ docker-compose up --build
 ```
 
 Tests will start automatically
