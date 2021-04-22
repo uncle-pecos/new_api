@@ -16,7 +16,7 @@ $ docker-compose up --build
 
 Tests will start automatically
 
-You can point your browser to http://locahost:8080/
+You can point your browser to http://locahost:8080/api/users/
 
 There are database of users:
 - id
@@ -26,13 +26,13 @@ There are database of users:
 - data_joined
 
 Endpoints:
-- /users/
-- /department/
+- /api/users/
+- /api/department/
 
-You can check all users by http://locahost:8080/users/
+You can check all users by http://locahost:8080/api/users/
 Also it has filters by 'username' and 'department'
 
-You can check all departments by http://locahost:8080/department/
+You can check all departments by http://locahost:8080/api/department/
 Also it has filter by 'department'
 
 Finally you can stop the server (from project main dir):
