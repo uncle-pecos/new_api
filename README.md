@@ -8,7 +8,7 @@ The image is quite light thanks to
 Run it
 ======
 
-Run it from main project folder ('new_api'):
+Run it from project main dir ('new_api'):
 
 ```
 $ docker-compose up --build
@@ -35,7 +35,7 @@ Also it has filters by 'username' and 'department'
 You can check all departments by http://locahost:8080/department/
 Also it has filter by 'department'
 
-Finally you can stop the server (from main project folder):
+Finally you can stop the server (from project main dir):
 
 ```
 $ docker-compose down
@@ -45,28 +45,26 @@ $ docker-compose down
 Build it and run
 ========
 
-You may rebuild the server image from 'server' folder:
+You may rebuild the server image from 'server' dir:
 
 ```
 $ docker build -t api-start .
 $ docker run -d -p 8080:8080 api-start
 ```
 
-(it works in server folder)
 
-If you use Windows you may run start_api.bat in server folder
+If you use Windows you may run start_api.bat in server dir.
 
 Run tests
 ========
 
-You may build and run tests (client part) from 'client' folder:
+You may build and run tests (client part) from 'client' dir:
 
 ```
 $ docker build -t api-tests .
 $ docker run -d -p 8080:8080 api-tests
 ```
 
-(it works in client folder)
 
 Show logs
 ========
