@@ -30,10 +30,10 @@ Endpoints:
 - /api/department/
 
 You can check all users by http://locahost:8080/api/users/
-Also it has filters by 'username' and 'department'
+Also it has filters by 'username' and 'department' (case sensitive) 
 
 You can check all departments by http://locahost:8080/api/department/
-Also it has filter by 'department'
+Also it has filter by 'department' (case sensitive) 
 
 Finally you can stop the server (from project main dir):
 
