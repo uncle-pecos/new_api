@@ -37,9 +37,6 @@ class Userss:
                         pass  
         return {'%s' % data1}
 
-    def POST(self, a, b):
-        return a
-
     exposed = True
 
 class Departments:
